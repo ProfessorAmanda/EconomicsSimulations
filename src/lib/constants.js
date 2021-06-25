@@ -101,8 +101,8 @@ export const MODULES = [
     name: "Confidence Intervals",
     description: "A confidence interval provides a range of values for the likely location of the true population mean, based on information gathered from a sample.",
   },
-  {
-    name: "Hypothesis Testing",
-    description: "Hypothesis testing is a procedure that allows us to form conclusions based on information derived from a sample.",
-  }
+  // {
+  //   name: "Hypothesis Testing",
+  //   description: "Hypothesis testing is a procedure that allows us to form conclusions based on information derived from a sample.",
+  // }
 ];
