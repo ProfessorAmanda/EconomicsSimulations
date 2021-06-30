@@ -7,14 +7,14 @@ import { distributionType, stringOrNumberType } from "../../lib/types.js";
 export default function ConfidenceInputs({ distType, setDistType, confLevel, setConfLevel }) {
   return (
     <div>
-      <Row className="Center">
+      <Row>
         <div>
           1) Do you want to assume that you know σ? If yes, choose Z. If no, choose T: {" "}
           <SelectorButtonGroup options={["Z", "T"]} select={setDistType} selected={distType}/>
         </div>
       </Row>
       <br/>
-      <Row className="Center">
+      <Row>
         <div>
           2) Confidence Level: {" "}
           <SelectorButtonGroup
@@ -25,7 +25,7 @@ export default function ConfidenceInputs({ distType, setDistType, confLevel, set
         </div>
       </Row>
       <br/>
-      <Row className="Center">
+      <Row>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
           <div>
             More Levels:

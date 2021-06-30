@@ -9,7 +9,6 @@ export default function CoefficientInput({ beta, setBeta, delta, setDelta }){
           <InputGroupText>β₁, the Coefficient on Study Hours:</InputGroupText>
         </InputGroupAddon>
         <Input
-          className="Center"
           type="number"
           step={.1}
           value={beta}
@@ -23,7 +22,6 @@ export default function CoefficientInput({ beta, setBeta, delta, setDelta }){
             <InputGroupText>𝛿, the Coefficient on Sleep Hours:</InputGroupText>
         </InputGroupAddon>
         <Input
-          className="Center"
           type="number"
           step={.1}
           value={delta}

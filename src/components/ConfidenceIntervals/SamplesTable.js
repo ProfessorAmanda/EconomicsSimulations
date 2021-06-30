@@ -24,7 +24,7 @@ export default function SamplesTable({ samples, setSelected }) {
 
   return (
     <div style={{ height: 500, overflow: "auto", marginTop: -50 }}>
-      <Table hover className="ciTable">
+      <Table hover className="ci-table">
         <thead>
           <tr>
             <th>Sample</th>

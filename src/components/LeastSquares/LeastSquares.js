@@ -8,7 +8,7 @@ import { Alert } from "reactstrap";
 
 export default function LeastSquares() {
   return (
-    <div className="MainContainer">
+    <div className="module-container">
       <Alert style={{ width: "50%", margin: 'auto' }} color="primary">
         Least Squares
       </Alert>

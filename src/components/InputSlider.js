@@ -4,11 +4,10 @@ import { stringOrNumberType } from "../lib/types";
 
 export default function InputSlider({ value, min, max, step, onChange }) {
   return (
-    <InputGroup style={{height: "30px", width: "400px", margin: "auto"}}>
+    <InputGroup className="input-slider-group">
       <Input
         type="range"
         className="custom-range"
-        style={{width: "60%"}}
         value={value}
         min={min}
         max={max}
@@ -18,7 +17,7 @@ export default function InputSlider({ value, min, max, step, onChange }) {
       <InputGroupAddon addonType="append">
         <Input
           type="number"
-          className="inputGroupAppend"
+          className="input-group-append"
           value={value}
           min={min}
           max={max}

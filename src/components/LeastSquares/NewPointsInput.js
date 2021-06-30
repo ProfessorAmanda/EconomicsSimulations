@@ -11,7 +11,7 @@ export default function NewPointsInput({ generatePoints }) {
   const [numPoints, setNumPoints] = useState(5);
 
   return (
-    <InputGroup style={{height: "30px", width: "400px", margin: "auto"}}>
+    <InputGroup className="input-slider-group">
       <Input
         type='range'
         className="custom-range"

@@ -15,24 +15,24 @@ export default function SimulationMenu() {
   const [logo, setLogo] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLogo(false);
     }, 3500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     start ? (
       <div>
-        <div className="App-bg"/>
+        <div className="intro-animation"/>
         {!logo && <StartHere start={start} showApp={() => setStart(false)}/>}
       </div>
     ) : (
       <div>
         {(mode === "Home") ? (
-          <Fade in={(mode === "Home")} style={{ display: (mode === "Home") ? 'block' : 'none' }}>
-            <div className="Nav" key={'unkey'}>
-              <SimBar setSection={setMode}/>
-            </div>
+          <Fade in={(mode === "Home")}>
+            <SimBar setSection={setMode}/>
           </Fade>
         ) : (
           <SimulationContainer mode={mode} setMode={setMode}/>

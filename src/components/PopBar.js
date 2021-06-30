@@ -6,17 +6,11 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import SelectorButtonGroup from './SelectorButtonGroup';
+import { popShapeType } from '../lib/types';
 
 
-export default function PopBar({ sim, setPop }) {
+export default function PopBar({ options, setPop }) {
   const [selected, setSelected] = useState();
-
-  let modes = [];
-  if (sim === "CLT") {
-    modes = [ "Normal", "Uniform", "Exponential", "Chi-Squared", "Mystery" ];
-  } else if ((sim === "LLN") || (sim === "CI")) {
-    modes = [ "Normal", "Uniform", "Exponential", "Chi-Squared" ];
-  }
 
   const onClick = (mode) => {
     setPop(mode);
@@ -24,14 +18,14 @@ export default function PopBar({ sim, setPop }) {
   }
 
   return (
-    <div className="buttonGroup">
+    <div className="button-group">
       <p>Pick a Population Distribution: </p>
-      <SelectorButtonGroup options={modes} select={onClick} selected={selected}/>
+      <SelectorButtonGroup options={options} select={onClick} selected={selected}/>
     </div>
   );
 }
 
 PopBar.propTypes = {
-  sim: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(popShapeType).isRequired,
   setPop: PropTypes.func.isRequired,
 }

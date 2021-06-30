@@ -122,7 +122,7 @@ export default function OVBSimulation() {
   return (
     <div>
       <Row>
-        <p className="Center">Choose Population Parameters:</p>
+        <p>Choose Population Parameters:</p>
       </Row>
       <br/>
       <Row lg={2} sm={1}>
@@ -134,8 +134,8 @@ export default function OVBSimulation() {
           <InputSlider value={correlation} min={-0.99} max={0.99} step={.01} onChange={(value) => adjustCorrelation(value)}/>
           <br/>
           <InputGroup style={{width: "fit-content", margin: "auto"}}>
-            <InputGroupText className="Center">Covariance between Study Hours and Sleep Hours:</InputGroupText>
-            <InputGroupText className="Center">{covariance.toFixed(2)}</InputGroupText>
+            <InputGroupText>Covariance between Study Hours and Sleep Hours:</InputGroupText>
+            <InputGroupText>{covariance.toFixed(2)}</InputGroupText>
           </InputGroup>
         </Col>
       </Row>

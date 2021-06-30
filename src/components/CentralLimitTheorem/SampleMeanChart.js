@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import DotPlot from '../DotPlot';
 import { VALUES } from '../../lib/constants';
-import { max, min } from 'mathjs';
+import { max, min, sqrt } from 'mathjs';
 import { popShapeType } from '../../lib/types';
 import _ from "lodash";
 
 export default function SampleMeanChart({ sampleMeans, normalized, popMean, sd, popShape }) {
-  console.log(popMean, sd)
-  const newSampleMeans = normalized ? sampleMeans.map((mean) => (mean - popMean) / sd) : sampleMeans;
+  const newSampleMeans = normalized ? sampleMeans.map(({ size, mean }) => ((mean - popMean) / (sd / sqrt(size)))) : sampleMeans.map(({ mean }) => mean);
 
   const meanCounts = _.countBy(newSampleMeans.map((mean) => _.round(mean, 2)));
   const sampleMeansPoints = [];

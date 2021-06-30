@@ -14,11 +14,11 @@ export default function PopTable({ popArray, sampleIDs, popShape }) {
   );
 
   return (
-    <Table striped className="PopTable">
+    <Table striped className="pop-table">
       <thead>
         <tr>
+          <th>{VALUES[popShape].tableCol}</th>
           <th>{VALUES[popShape].xLabel}</th>
-          <th>{VALUES[popShape].yLabel}</th>
         </tr>
       </thead>
       <tbody>

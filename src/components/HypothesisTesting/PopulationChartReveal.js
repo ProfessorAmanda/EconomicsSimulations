@@ -7,10 +7,10 @@ import { populationMean } from "../../lib/stats-utils.js";
 export default function PopulationChartReveal({ popArr, pVal, alpha }) {
   return (
     <Container>
-      <Row className="Center">
+      <Row>
         <Container fluid>
           <Row>
-            <Alert color="secondary" className="Center">
+            <Alert color="secondary">
               <p>
                 We queried the monthly Milk Production of {popArr.length} cows and plotted the results on the following chart.
               </p>
@@ -23,15 +23,12 @@ export default function PopulationChartReveal({ popArr, pVal, alpha }) {
             <DotPlot
               series={[{name: 'Population', data: popArr}]}
               title="Milk Production"
-              xMin={55}
-              xMax={81}
-              yMax={40}
               xLabel="Gallons"
             />
           </Row>
         </Container>
       </Row>
-      <Row className="Center">
+      <Row>
         <p>Our hypothesis test conclusion was therefore {(pVal < alpha) ? "correct" : "incorrect"}.</p>
       </Row>
     </Container>

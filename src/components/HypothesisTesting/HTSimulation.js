@@ -22,12 +22,12 @@ export default function HTSimulation() {
   }, [pplShape, testType]);
 
   return (
-    <div className="MainContainer">
+    <div className="module-container">
       <TestInputs testType={testType} setDistType={setDistType} distType={distType} setTestType={setTestType} popShape={pplShape} setPopType={setPplShape}/>
       {(stage >= 2) && (
         <Container fluid>
           <Row>
-            <Alert color="secondary" className="Center">
+            <Alert color="secondary">
               <p>The true population distribution will be revealed at the end.</p>
               {(testType === "oneSample") ? (
                 <p>
@@ -51,14 +51,14 @@ export default function HTSimulation() {
           {(stage >= 3) && (
             <Container>
               <Row>
-                <Alert color="secondary" className="Center" >
+                <Alert color="secondary" >
                   <p>This means our null and alternative hypotheses are given by:</p>
                   <p>{hypothesis.nullH} {(testType === "oneSample") && mue0}</p>
                   <p>{hypothesis.alterH} {(testType === "oneSample") && mue0}</p>
                 </Alert>
               </Row>
               <br/>
-              <Row className="Center">
+              <Row>
                 <PerformTest
                   distType = {distType}
                   shape={(pplShape === "??Unknown??") ? _.sample(["Normal", "Uniform", "Mystery"]) : pplShape}

@@ -1,4 +1,4 @@
-import { mean, sqrt, random, round, std } from "mathjs";
+import { mean, std } from "mathjs";
 import PD from "probability-distributions";
 import _ from "lodash";
 
@@ -58,87 +58,22 @@ export const generateChiSquared = (sampleSize, degreesOfFreedom) => {
   return _.shuffle(popArray).map((obj, index) => ({...obj, id: index}));
 }
 
-// generates a dataset with 'mystery' distribution
+// generates a dataset with 'mystery' distribution (really points sampled randomly from two normal distributions)
 // returns an array of {x, y, id}
-export const generateMystery = (sampleSize) => {
+export const generateMystery = (sampleSize, mysteryMean1, mysteryMean2, mysterySD1, mysterySD2) => {
+  const normal1 = PD.rnorm(sampleSize, mysteryMean1, mysterySD1).map((num) => _.round(num, 1));
+  const normal2 = PD.rnorm(sampleSize, mysteryMean2, mysterySD2).map((num) => _.round(num, 1));
 
+  const population = _.sampleSize([...normal1, ...normal2], 2000);
+  const counts = _.countBy(population);
   const popArray = [];
-
-  const firstMEAN = 75.5;
-  const firstSTANDARD_DEV = 3;
-  const firstITERATES = 9;
-  const firstrange = sqrt(12) * firstSTANDARD_DEV * firstSTANDARD_DEV;
-  const firstpopMin = firstMEAN - (firstrange / 2);
-  const secondMEAN = 60.5;
-  const secondSTANDARD_DEV = 2;
-  const secondITERATES = 9;
-  const secondrange = sqrt(12) * secondSTANDARD_DEV * secondSTANDARD_DEV;
-  const secondpopMin = secondMEAN - (secondrange / 2);
-
-  const clearedArray = [];
-  const popDict = [];
-  const newCleared = clearedArray;
-  const stateCopy = popDict;
-
-
-  for (let i = 0; i < sampleSize/2; i++){
-    let sum = 0;
-    if(clearedArray.length === 0){
-        for (let j = 0; j < firstITERATES; j++){
-            sum += random() * firstrange + firstpopMin;
-        }
+  _.entries(counts).forEach(([amt, count]) => {
+    for (let i = 1; i <= count; i++) {
+      popArray.push({x: +amt, y: i})
     }
-    else{
-        sum = newCleared.pop() * firstITERATES;
-    }
-    if (popDict[round(sum / firstITERATES * 10)]){
-        stateCopy[round(sum / firstITERATES * 10)] += 1
-    }
-    else {
-        stateCopy[round(sum / firstITERATES * 10)] = 1
-    }
-    popArray.push(round((sum / firstITERATES)*100)/100)
-  }
-
-  for (let i = 0; i < sampleSize/2; i++){
-      let sum = 0;
-      if(clearedArray.length === 0){
-          for (let j = 0; j < secondITERATES; j++){
-              sum += random() * secondrange + secondpopMin;
-          }
-      }
-      else{
-          sum = newCleared.pop() * secondITERATES;
-      }
-      if (popDict[round(sum / secondITERATES * 10)]){
-          stateCopy[round(sum / secondITERATES * 10)] += 1
-      }
-      else {
-          stateCopy[round(sum / secondITERATES * 10)] = 1
-      }
-      popArray.push(round((sum / secondITERATES)*100)/100)
-  }
-
-  const finalPopArray = [];
-
-  let count = Array(sampleSize).fill(-1);
-  for (let i = 0; i < sampleSize; i++){
-
-      let val = popArray[i];
-
-      if (count[round(val * 10)] !== -1){
-          count[round(val * 10)] += 1;
-      }
-      else {
-          count[round(val * 10)] = 1;
-      }
-
-      finalPopArray.push({x: +(round(val * 10)/10), y: count[round(val * 10)]})
-  }
-
-  return _.shuffle(finalPopArray).map((obj, index) => ({...obj, id: index}));
+  });
+  return _.shuffle(popArray).map((obj, index) => ({...obj, id: index}));
 }
-
 
 // returns the data set from the function corresponding with distType
 // objects in array are of shape {x, y, id}
@@ -151,7 +86,11 @@ export const dataFromDistribution = (
       low=-10,
       hi=10,
       lambda=1/64,
-      degreesOfFreedom=8
+      degreesOfFreedom=8,
+      mysteryMean1=57,
+      mysteryMean2=70,
+      mysterySD1=1,
+      mysterySD2=3
     } = {}
   ) => {
 
@@ -160,7 +99,7 @@ export const dataFromDistribution = (
     "Uniform": () => generateUniform(sampleSize, low, hi),
     "Exponential": () => generateExponential(sampleSize, lambda),
     "Chi-Squared": () => generateChiSquared(sampleSize, degreesOfFreedom),
-    "Mystery": () => generateMystery(sampleSize)
+    "Mystery": () => generateMystery(sampleSize, mysteryMean1, mysteryMean2, mysterySD1, mysterySD2)
   }
 
   return getDistributionFunction[distType]();

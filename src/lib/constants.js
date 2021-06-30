@@ -1,18 +1,18 @@
 export const SAMPLE_SIZE = 2000;
 
 export const VALUES = {
-  Normal: { xmaxval: 74, xminval: 56, ymaxval: 40, title: "Milk Production", xLabel: "Gallons" },
-  Uniform: { xmaxval: 10, xminval: -10, ymaxval: 25, title: "Lottery Outcome", xLabel: "Dollars"},
-  Exponential: { xmaxval: 400, xminval: 0, ymaxval: 10, title: "Duration of Telemarketer Call", xLabel: "Duration (seconds)"},
-  "Chi-Squared": {xmaxval: 25, xminval: 0, ymaxval: 40, title: "Money Spent on Lunch", xLabel: "Dollars"},
-  Mystery: { xmaxval: 80, xminval: 50, ymaxval: 40, title:"Alien Female Height", xLabel: "Height (in)"}
+  Normal: { xmaxval: 75, xminval: 50, ymaxval: 40, title: "Milk Production", xLabel: "Gallons", tableCol: "Cow" },
+  Uniform: { xmaxval: 10, xminval: -10, ymaxval: 25, title: "Lottery Outcome", xLabel: "Dollars", tableCol: "Person" },
+  Exponential: { xmaxval: 500, xminval: 0, ymaxval: 10, title: "Duration of Telemarketer Call", xLabel: "Duration (seconds)", tableCol: "Call" },
+  "Chi-Squared": {xmaxval: 30, xminval: 0, ymaxval: 40, title: "Money Spent on Lunch", xLabel: "Dollars", tableCol: "Worker" },
+  Mystery: { xmaxval: 80, xminval: 50, ymaxval: 60, title: "Alien Female Height", xLabel: "Height (in)", tableCol: "Alien" }
 }
 
 export const VALUES_ALT = {
-  Normal: { xmaxval: 74, xminval: 56, title: "Milk Production", xLabel: "Gallons" },
-  Uniform: { xmaxval: 74, xminval: 56, title: "Alien Female Height", xLabel: "Height (in)"},
-  Exponential: { xmaxval: 400, xminval: 0, title: "Duration of Telemarketer Call", xLabel: "Duration (seconds)"},
-  "Chi-Squared": {xmaxval: 25, xminval: 0, title: "Money Spent on Lunch", xLabel: "Dollars"}
+  Normal: { xmaxval: 75, xminval: 50, title: "Milk Production", xLabel: "Gallons" },
+  Uniform: { xmaxval: 75, xminval: 55, title: "Alien Female Height", xLabel: "Height (in)"},
+  Exponential: { xmaxval: 500, xminval: 0, title: "Duration of Telemarketer Call", xLabel: "Duration (seconds)"},
+  "Chi-Squared": {xmaxval: 30, xminval: 0, title: "Money Spent on Lunch", xLabel: "Dollars"}
 }
 
 export const TEXTS = {

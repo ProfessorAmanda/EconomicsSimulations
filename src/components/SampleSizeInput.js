@@ -13,7 +13,7 @@ export default function SampleSizeInput({ maxSize, handleClick }) {
   const [sampleSize, setSampleSize] = useState("");
 
   return (
-    <InputGroup style={{width: "50%", margin: "auto"}}>
+    <InputGroup className="sample-size-input">
       <Input
         align="right"
         type="number"

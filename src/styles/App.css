@@ -1,4 +1,4 @@
-.Wrapper {
+.wrapper {
   text-align: center;
   margin: 0 0 0 0;
   height: 100vh;
@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.Wrapper:before {
+.wrapper:before {
   content: ' ';
   display: block;
   position: fixed;
@@ -26,16 +26,7 @@
   background-size: cover;
 }
 
-.PopTable {
-  margin: auto;
-  margin-top: 2vh;
-}
-
-@keyframes bg-fade {
-
-}
-
-.App-bg {
+.intro-animation {
   padding: 0 0 0 0;
   margin: 0 0 0 0;
   height: 100vh;
@@ -55,42 +46,7 @@
   to { background-position: bottom; }
 }
 
-.scrollable {
-  height: 800px;
-  overflow-y: scroll;
-}
-
-.Splash {
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.918);
-  position: fixed;
-  z-index: 2;
-}
-
-.Splash:before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.01;
-  background-image: url('../images/bg.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-
-.Jumbotron {
+.jumbotron {
   padding-top: 50vh;
   text-align: center;
   margin-right: auto;
@@ -99,31 +55,23 @@
   background-color: rgba(255, 255, 255, 0);
 }
 
-.Jumbotron h1 {
-  color: black;
+::-webkit-scrollbar {
+  width: 0px; /* remove scrollbar space */
+  background: transparent;
 }
 
-.Sidebar {
-  display: block;
-  left: 0vh;
-  padding: 0 0 0 0;
-  width: 80px;
-  height: 100vh;
-  background-color: rgba(248, 183, 145, 0.767);
-  transition: width .5s;
-}
-
-.PopTable {
+.pop-table {
   display: block;
   width: 200px;
   table-layout: fixed;
   border-collapse: collapse;
   overflow: auto;
   box-sizing: content-box;
-
+  margin: auto;
+  margin-top: 2vh;
 }
 
-.PopTable tbody {
+.pop-table tbody {
   display: block ;
   width: 100%;
   overflow-x: hidden;
@@ -131,47 +79,19 @@
   height: 40vh;
 }
 
-.PopTable thead tr {
+.pop-table thead tr {
   display: block;
 }
 
-::-webkit-scrollbar {
-  width: 0px; /* remove scrollbar space */
-  background: transparent;
-}
-
-.PopTable th, .PopTable td {
+.pop-table th, .pop-table td {
   padding: 5px;
   text-align: center;
   width: 75px;
 }
 
-.Plate {
-  padding-top: 10vh;
-  width: 75%;
-  background-color: rgb(255, 255, 255, .1);
-}
-
-.Border {
-  border: solid;
-}
-
-.boom:before {
-  content: '';
-  background-color: black;
-  position: relative;
-  /* display: block; */
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  top: 0;
-  left: 0;
-}
-
-.MainContainer {
+.module-container {
   margin: auto;
   width: 75%;
-  height: 100%;
 }
 
 p, h1 {
@@ -183,32 +103,7 @@ h1 {
   padding: 0;
 }
 
-.TabBar {
-  position: relative;
-  margin:auto;
-  /* display: block; */
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0);
-}
-
-#DistLabel {
-  position: relative;
-  top: 0;
-  right: 0;
-}
-
-#Menu {
-  position: relative;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
-  /* border: solid 1px orange; */
-  /* border-bottom: none; */
-}
-
-.MiniLogo {
+.mini-logo {
   /* position: absolute; */
   margin:auto;
   /* margin-top: 3em; */
@@ -221,54 +116,7 @@ h1 {
   min-height: 20vh;
 }
 
-.highcharts-grid-line {
-  stroke-width: 0px;
-	stroke: #d8d8d8;
-}
-
-.Center {
-  margin: auto;
-  position: relative;
-  width: 100%;
-  display: block;
-  text-align: center;
-}
-
-.nav-tabs {
-  /* color: blue; */
-  border-color: orange;
-}
-
-.nav-tabs .nav-link.active {
-    color: orange;
-    border-color: orange;
-    border-bottom-color: white;
-
-}
-
-a:not([href]):not([tabindex]):hover {
-  color: orange;
-  border-color: orange;
-  border-bottom-color: white;
-  cursor: pointer;
-}
-
-.Sidebar button {
-  font-size: 0.5em;
-  transition: font-size .5s;
-  border: none;
-  border-radius: 0;
-}
-
-.Sidebar:hover {
-  width: fit-content;
-}
-
-.Sidebar:hover button {
-    font-size: 1em;
-}
-
-.Nav {
+.menu {
   padding: 150px 0;
   margin: 0 0 0 40vh;
   text-align: center;
@@ -279,76 +127,59 @@ a:not([href]):not([tabindex]):hover {
   overflow: hidden;
 }
 
-.App {
-  text-align: center;
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-}
-
-.App-header {
-  background-color: #222;
-  padding: 20px;
-  color: white;
-}
-
-.marge {
-  margin: 0%;
-}
-
-.Logo {
-  display: block;
-  margin: auto;
-  animation: Logo-intro 1500ms 2000ms ease forwards;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes Logo-intro {
-  to { transform: scale(.5, .5); }
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.simBarOptionList {
+.sim-bar-option-list {
   list-style-type: none;
 }
 
-.simOption {
+.sim-option {
   margin: 40px;
 }
 
-.simDescription {
+.sim-description {
   width: 90%;
   margin: auto;
 }
 
-.buttonGroup {
+.button-group {
   padding: 15px;
 }
 
-
-.inputGroupAppend {
+.input-group-append {
   width: fit-content;
   justify-content: center;
 }
 
-.ciTable {
+.ci-table {
   position: relative;
 }
 
-.ciTable th {
+.ci-table th {
   background: white;
   position: sticky;
   top: 0;
+}
+
+.home-button {
+  margin: 15px;
+}
+
+.sample-size-input {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.input-slider-group {
+  height: 30px;
+  width: 400px;
+  margin: auto;
+}
+
+.custom-range {
+  width: 60%;
+}
+
+.least-squares-container {
+  margin-left: -100px;
+  margin-right: 0;
 }

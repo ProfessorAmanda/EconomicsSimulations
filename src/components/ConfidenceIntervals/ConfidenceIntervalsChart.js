@@ -204,7 +204,7 @@ export default function ConfidenceIntervalsChart({ confidenceLevel, samples, pop
     <div>
       {
         selected ? (
-          <Alert color={selected.label ? "success" : "danger"} className="Center">
+          <Alert color={selected.label ? "success" : "danger"}>
             Sample number {selected.id} has a mean of {selected.mean.toFixed(2)}, with {confidenceLevel}% CI ({_.round(selected.lowerConf, 2)}, {_.round(selected.upperConf, 2)}). CI contains the population mean? {selected.label.toString()}
           </Alert>
         ) : <div style={{height: 80}}/>

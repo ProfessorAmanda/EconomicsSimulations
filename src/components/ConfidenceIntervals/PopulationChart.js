@@ -21,7 +21,7 @@ export default function PopulationChart({ popArray, popMean, sampled, popShape }
 
   return (
     <Container fluid>
-      <Alert color="secondary" className="Center">
+      <Alert color="secondary">
         We queried the {TEXTS_ALT[popShape][0]} of {popArray.length} {TEXTS_ALT[popShape][1]} and plotted the results on the following chart.
       </Alert>
       <DotPlot

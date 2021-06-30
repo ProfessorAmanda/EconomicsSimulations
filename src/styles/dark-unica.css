@@ -954,3 +954,8 @@ text.highcharts-drilldown-data-label,
 .highcharts-grid-axis .highcharts-axis-line {
   stroke-width: 1px;
 }
+
+.highcharts-grid-line {
+  stroke-width: 0px;
+	stroke: #d8d8d8;
+}

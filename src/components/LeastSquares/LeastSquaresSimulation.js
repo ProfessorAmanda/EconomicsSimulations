@@ -56,29 +56,27 @@ export default function LeastSquaresSimulation() {
   }
 
   return (
-    <div>
-      <Row style={{marginLeft: -100, marginRight: 0}}>
-        <Col xs="auto">
-          <LeastSquaresChart points={points} linePoints={linePoints} setSquareAreas={setSquareAreas}/>
-        </Col>
-        <Col xs={{size: 3, offset: 3}} md={{size: 3, offset: 0}} style={{paddingTop: "100px"}}>
-          <NewPointsInput generatePoints={generatePoints}/>
-          <br/>
-          {(stage === 2) && <p>Guess a Slope and Y-Intercept to fit the points</p>}
-          {(stage === 3) && <p>Want to try again? Guess a different slope and y-intercept to reduce the Sum of Squares!</p>}
-          {(stage >= 2) &&
-            <div>
-              <h4>Intercept</h4>
-              <InputSlider value={intercept} min={-20} max={20} step={0.1} onChange={(value) => setIntercept(value)}/>
-              <br/>
-              <h4>Slope</h4>
-              <InputSlider value={slope} min={-10} max={10} step={0.1} onChange={(value) => setSlope(value)}/>
-              <br/>
-              <PlotLine stage={stage} setStage={setStage} squareAreas={squareAreas} generateBestLine={generateBestLine}/>
-            </div>
-          }
-        </Col>
-      </Row>
-    </div>
+    <Row className="least-squares-container">
+      <Col xs="auto">
+        <LeastSquaresChart points={points} linePoints={linePoints} setSquareAreas={setSquareAreas}/>
+      </Col>
+      <Col xs={{size: 3, offset: 3}} md={{size: 3, offset: 0}} style={{paddingTop: "100px"}}>
+        <NewPointsInput generatePoints={generatePoints}/>
+        <br/>
+        {(stage === 2) && <p>Guess a Slope and Y-Intercept to fit the points</p>}
+        {(stage === 3) && <p>Want to try again? Guess a different slope and y-intercept to reduce the Sum of Squares!</p>}
+        {(stage >= 2) &&
+          <div>
+            <h4>Intercept</h4>
+            <InputSlider value={intercept} min={-20} max={20} step={0.1} onChange={(value) => setIntercept(value)}/>
+            <br/>
+            <h4>Slope</h4>
+            <InputSlider value={slope} min={-10} max={10} step={0.1} onChange={(value) => setSlope(value)}/>
+            <br/>
+            <PlotLine stage={stage} setStage={setStage} squareAreas={squareAreas} generateBestLine={generateBestLine}/>
+          </div>
+        }
+      </Col>
+    </Row>
   )
 }

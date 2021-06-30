@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Highcharts from "highcharts";
 import HighchartsReact from 'highcharts-react-official';
-import { Collapse, Card, CardBody } from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 import '../../styles/dark-unica.css';
 import _ from "lodash";
 import PropTypes from 'prop-types';
@@ -100,13 +100,11 @@ export default function SimulateSamples({ type, popArray, popMean }) {
   }, []);  // eslint-disable-line
 
   return (
-    <Collapse isOpen>
-      <Card outline style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>
-        <CardBody style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>
-          <HighchartsReact highcharts={Highcharts} options={chart}/>
-        </CardBody>
-      </Card>
-    </Collapse>
+    <Card outline>
+      <CardBody>
+        <HighchartsReact highcharts={Highcharts} options={chart}/>
+      </CardBody>
+    </Card>
   );
 }
 

@@ -8,7 +8,7 @@ import JDSimulation from './JDSimulation.js';
 
 export default function JointWrapper() {
   return(
-    <div className="MainContainer">
+    <div className="module-container">
       <Alert style={{ width: "50%", margin: 'auto' }} color="primary">
           Joint Distributions
       </Alert>

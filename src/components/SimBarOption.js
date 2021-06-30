@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 export default function SimBarOption({ section, setSection }) {
   return (
-    <Card body outline color="primary" className="simOption">
-      <CardText style={{overflowY: 'auto', boxSizing: 'content-box' }}>{section.description}</CardText>
+    <Card body outline color="primary" className="sim-option">
+      <CardText>{section.description}</CardText>
       <Button outline color='primary' onClick={() => setSection(section.name)}>
         {section.name}
       </Button>

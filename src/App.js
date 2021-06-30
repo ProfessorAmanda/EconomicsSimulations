@@ -1,10 +1,10 @@
-import styles from './styles/App.css';  // eslint-disable-line
+import './styles/App.css';
 import SimulationMenu from './components/SimulationMenu.js';
 
 export default function App() {
 
   return (
-    <div className="Wrapper">
+    <div className="wrapper">
       <SimulationMenu/>
     </div>
   );

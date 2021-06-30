@@ -16,9 +16,9 @@ export default function SimBar({ setSection }) {
   );
 
   return (
-    <div key={'key23'}>
-      <div className="MiniLogo"></div>
-      <ul className="simBarOptionList">{sections}</ul>
+    <div className="menu" data-testid="menu">
+      <div className="mini-logo"/>
+      <ul className="sim-bar-option-list">{sections}</ul>
     </div>
   );
 }

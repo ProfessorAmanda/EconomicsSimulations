@@ -80,11 +80,11 @@ export default function JDSimulation() {
           <InputGroupText>{(correlation * parentSD * childSD).toFixed(2)}</InputGroupText>
         </Col>
       </Row>
-      <Row className='Center'>
+      <Row>
         <Button
           outline
           color='primary'
-          style={{margin:"3vh", width: "fit-content"}}
+          style={{width: "fit-content", margin: "auto"}}
           disabled={!parentMean || !parentSD || !childMean || !childSD}
           onClick={() => generate()}
         >

@@ -4,7 +4,7 @@ import _ from "lodash";
 
 export default function DataDisplay({ mean, standardDev, testStatistic, pValue, alpha }) {
   return (
-    <Alert color="secondary" className="Center" >
+    <Alert color="secondary" >
       <p>This sample yields the following data:</p>
       <p>Sample Mean: {_.round(mean, 2)}</p>
       <p>Sample Standard Deviation: {_.round(standardDev, 2)} </p>

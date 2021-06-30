@@ -17,7 +17,7 @@ export default function SampleMeansTable({ sampleMeans }) {
   );
 
   return (
-    <Table hover className="PopTable">
+    <Table hover className="pop-table">
       <thead>
         <tr>
           <th>Sample</th>

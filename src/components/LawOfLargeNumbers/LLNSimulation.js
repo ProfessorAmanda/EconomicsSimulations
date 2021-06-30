@@ -53,7 +53,7 @@ export default function LLNSimulation({ popShape, sampleSize }) {
         <SampleSizeInput maxSize={popArray.length} handleClick={handleClick}/>
         {(stage >= 2) &&
           <div>
-            <Alert color="success" style={{ padding: 0, marginTop: '1em' }}>
+            <Alert color="success">
               Sample Mean: {_.round(sampleMean, 2) || ''}
               <br/>
               Difference of Means: {_.round(popMean - sampleMean, 2)}

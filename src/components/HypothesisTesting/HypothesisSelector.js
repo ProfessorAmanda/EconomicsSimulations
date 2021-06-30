@@ -35,7 +35,6 @@ export default function HypothesisSelector({ testType, setHypothesis, mue0, setM
       {(testType === "oneSample") && (
         <>
           <Input
-            className="Center"
             type="number"
             value={mue0}
             step={1}

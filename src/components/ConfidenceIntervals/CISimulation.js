@@ -24,13 +24,14 @@ export default function CISimulation({ popShape, populationSize }) {
   useEffect(() => {
     setPopArray([]);
     setSamples([]);
+    setSelected();
   }, [popShape]);
 
   // Highcharts rendering is buggy - this second useEffect takes a second but allows the data to be reset completely before being generated again
   useEffect(() => {
     if (popArray.length === 0) {
       // adjust params for uniform distribution to fit example
-      const newPop = dataFromDistribution(popShape, populationSize, {low: 54, hi: 74});
+      const newPop = dataFromDistribution(popShape, populationSize, {low: 55, hi: 75});
       setPopArray(newPop);
     }
   }, [popArray, popShape, populationSize]);
@@ -115,7 +116,7 @@ export default function CISimulation({ popShape, populationSize }) {
               confidenceLevel={confLevel}
               samples={samples}
               popShape={popShape}
-              popMean={_.round(populationMean(popArray))}
+              popMean={_.round(populationMean(popArray), 2)}
               selected={selected}
               setSelected={setSelected}
             />
